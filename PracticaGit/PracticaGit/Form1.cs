@@ -36,9 +36,9 @@ namespace PracticaGit
             double coste = 0;
             //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
-            // telegrama urgente?
-            if (cbUrgente.Checked)
-                tipoTelegrama = 'u';
+            //Si el telegrama es ordinario
+            if (radioOrdinario.Checked)
+                tipoTelegrama = 'o';
             //Obtengo el número de palabras que forma el telegrama
             numPalabras = textoTelegrama.Length;
             char[] separador = new char[1];
@@ -51,6 +51,9 @@ namespace PracticaGit
                 else
                     coste = 2.5 + (0.5 * (numPalabras - 10));
             else
+            // telegrama urgente?
+            if (cbUrgente.Checked)
+                tipoTelegrama = 'u';            
             //Si el telegrama es urgente
             if (tipoTelegrama == 'u')
                 if (numPalabras <= 10)
