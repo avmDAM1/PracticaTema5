@@ -29,10 +29,11 @@ namespace PracticaGit
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string textoTelegrama;
+            //Cambios realizados al código
+            string textoTelegrama = "";
             char tipoTelegrama = ' ';
             int numPalabras = 0;
-            double coste;
+            double coste = 0;
             //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente?
@@ -40,12 +41,15 @@ namespace PracticaGit
                 tipoTelegrama = 'u';
             //Obtengo el número de palabras que forma el telegrama
             numPalabras = textoTelegrama.Length;
+            char[] separador = new char[1];
+            separador[0] = ' ';
+            numPalabras = textoTelegrama.Split(separador).Length;
             //Si el telegrama es ordinario
-            if (tipoTelegrama == 'o')
+            if (tipoTelegrama != 'O')
                 if (numPalabras <= 10)
-                    coste = 25;
+                    coste = 2.5;
                 else
-                    coste = 0.5 * numPalabras;
+                    coste = 2.5 + (0.5 * (numPalabras - 10));
             else
             //Si el telegrama es urgente
             if (tipoTelegrama == 'u')
